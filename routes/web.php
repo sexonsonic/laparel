@@ -47,3 +47,8 @@ Route::get('/tni/{nama?}/{bb?}/{umur?}', function ($nama=null, $bb=null, $umur=n
     return $yx;
 
 });
+
+    Route::get('testmodel',function(){
+        $post = App\Post::all();
+        return $post;
+    });
