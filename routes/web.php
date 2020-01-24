@@ -52,3 +52,27 @@ Route::get('/tni/{nama?}/{bb?}/{umur?}', function ($nama=null, $bb=null, $umur=n
         $post = App\Post::all();
         return $post;
     });
+
+    Route::get('data-musik',function(){
+        $post = App\Music::all()->take(3);
+        return $post;
+    });
+
+    Route::get('data-musik/select',function(){
+        $post = App\Music::select('kode_lagu','judul_lagu','penyanyi')->first();
+        return $post;
+    });
+
+    Route::get('data-musik/tambah/{kode_lagu}/{judul_lagu}/{penyanyi}/{penulis}/{album}/{genre}/{tgl_rilis}',
+    function($kode_lagu, $judul_lagu, $penyanyi, $penulis, $album, $genre, $tgl_rilis){
+        $post = new App\Music;
+        $post->kode_lagu = $kode_lagu;
+        $post->judul_lagu = $judul_lagu;
+        $post->penyanyi = $penyanyi;
+        $post->penulis = $penulis;
+        $post->album = $album;
+        $post->genre = $genre;
+        $post->tgl_rilis = $tgl_rilis;
+        $post->save();
+        return $post;
+    });
