@@ -76,3 +76,11 @@ Route::get('/tni/{nama?}/{bb?}/{umur?}', function ($nama=null, $bb=null, $umur=n
         $post->save();
         return $post;
     });
+
+    Route::get('tambah/{a?}/{b?}','LatihanController@tambah');
+    Route::get('kurang/{a?}/{b?}','LatihanController@kurang');
+    Route::get('bagi/{a?}/{b?}','LatihanController@bagi');
+    Route::get('kali/{a?}/{b?}','LatihanController@kali');
+
+    Route::get('data-1','LatihanController@loop');
+    Route::get('data-gaji','LatihanController@gaji');
