@@ -73,7 +73,7 @@ class LatihanController extends Controller
                 $tabungan = $key['uangjajan']*15/100;
                 $sisa = $key['uangjajan'] - $tabungan;
             } elseif ($key['uangjajan'] > 10000) {
-                $tabungan = $key['uangjajan']*10/100;
+                $tabungan = $key['uangjajan']*0.10;
                 $sisa = $key['uangjajan'] - $tabungan;
             } else {
                 $tabungan=0;
@@ -100,34 +100,34 @@ class LatihanController extends Controller
 
         foreach ($datacuy as $key => $value) {
             if ($value['Jabatan'] == "Manager") {
-                $gaji = "5000000";
-                if ($key['jam_kerja'] > 250) {
-                    $gaji2 = $gaji*10/100;
+                $gaji = 5000000;
+                if ($value['jam_kerja'] >= 250) {
+                    $gaji2 = 0.10*$gaji;
                     $bonus = $gaji+$gaji2;
-                } if ($key['jam_kerja'] > 200) {
-                    $gaji2 = $gaji*5/100;
+                } if ($value['jam_kerja'] >= 200) {
+                    $gaji2 = $gaji*0.05;
                     $bonus = $gaji+$gaji2;
                 }
 
 
             } if ($value['Jabatan'] == "Sekretaris") {
-                $gaji = "3500000";
-                if ($key['jam_kerja'] > 250) {
-                    $gaji2 = $gaji*10/100;
+                $gaji = 3500000;
+                if ($value['jam_kerja'] > 250) {
+                    $gaji2 = $gaji*0.10;
                     $bonus = $gaji+$gaji2;
-                } if ($key['jam_kerja'] > 200) {
-                    $gaji2 = $gaji*5/100;
+                } if ($value['jam_kerja'] > 200) {
+                    $gaji2 = $gaji*0.05;
                     $bonus = $gaji+$gaji2;
                 }
 
 
             } if ($value['Jabatan'] == "Staff") {
-                $gaji = "2500000";
-                if ($key['jam_kerja'] > 250) {
-                    $gaji2 = $gaji*10/100;
+                $gaji = 2500000;
+                if ($value['jam_kerja'] > 250) {
+                    $gaji2 = $gaji*0.10;
                     $bonus = $gaji+$gaji2;
-                } if ($key['jam_kerja'] > 200) {
-                    $gaji2 = $gaji*5/100;
+                } if ($value['jam_kerja'] > 200) {
+                    $gaji2 = $gaji*0.05;
                     $bonus = $gaji+$gaji2;
                 }
 
@@ -136,15 +136,15 @@ class LatihanController extends Controller
                 echo "";
             }
 
-            $PPN = $bonus*2.5/100;
+            $PPN = $bonus*0.025;
             $total = $bonus - $PPN;
 
-            echo "Nama : ".$key['Nama']."<br>".
-                 "Agama : ".$key['Agama']."<br>".
-                 "Alamat : ".$key['Alamat']."<br>".
-                 "Jenis Kelamin : ".$key['jk']."<br>".
-                 "Jabatan : ".$key['Jabatan']."<br>".
-                 "Jam Kerja : ".$key['jam_kerja']."<br>".
+            echo "Nama : ".$value['Nama']."<br>".
+                 "Agama : ".$value['Agama']."<br>".
+                 "Alamat : ".$value['Alamat']."<br>".
+                 "Jenis Kelamin : ".$value['jk']."<br>".
+                 "Jabatan : ".$value['Jabatan']."<br>".
+                 "Jam Kerja : ".$value['jam_kerja']."<br>".
                  "Gaji Asli : ".$gaji."<br>".
                  "Bonus : ".$gaji2."<br>".
                  "PPN : ".$PPN."<br>".

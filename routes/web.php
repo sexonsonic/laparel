@@ -84,3 +84,17 @@ Route::get('/tni/{nama?}/{bb?}/{umur?}', function ($nama=null, $bb=null, $umur=n
 
     Route::get('data-1','LatihanController@loop');
     Route::get('data-gaji','LatihanController@gaji');
+
+    // ROUTE DARI TABUNGAN
+    Route::get('tabungan','TabunganController@index');
+    Route::get('tabungan/{id}','TabunganController@show');
+    Route::get('tabungan-tambah/{nis}/{nama}/{kelas}/{jml}','TabunganController@store');
+    Route::get('tabungan-edit/{id}/{nis}/{nama}/{kelas}/{jml}','TabunganController@update');
+    Route::get('tabungan-delete/{id}','TabunganController@delete');
+
+    // ROUTE DARI COSTUMER
+    Route::get('costumer','CostumerController@index');
+    Route::get('costumer/{id}','CostumerController@show');
+    Route::get('costumer-tambah/{code_costumer}/{name}/{email}/{country}/{city}/{address}/{contact_number}','CostumerController@store');
+    Route::get('costumer-edit/{id}/{code_costumer}/{name}/{email}/{country}/{city}/{address}/{contact_number}','CostumerController@update');
+    Route::get('costumer-delete/{id}','CostumerController@delete');
