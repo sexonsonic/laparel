@@ -98,3 +98,8 @@ Route::get('/tni/{nama?}/{bb?}/{umur?}', function ($nama=null, $bb=null, $umur=n
     Route::get('costumer-tambah/{code_costumer}/{name}/{email}/{country}/{city}/{address}/{contact_number}','CostumerController@store');
     Route::get('costumer-edit/{id}/{code_costumer}/{name}/{email}/{country}/{city}/{address}/{contact_number}','CostumerController@update');
     Route::get('costumer-delete/{id}','CostumerController@delete');
+
+    // Passing Data Practice
+    Route::get('pass','PracticeController@pass');
+    Route::get('pass1','PracticeController@pass1');
+    Route::get('pass-tabungan','PracticeController@pass2');
