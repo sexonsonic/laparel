@@ -14,6 +14,7 @@ use Illuminate\Database\Seeder;
         $this->call(PostsTableSeeder::class);
         $this->call(SiswaSeeder::class);
         $this->call(MusicsTableSeeder::class);
+        $this->call(FilmSeeder::class);
         // $this->call(UsersTableSeeder::class);
         factory(App\Tabungan::class, 100)->create();
         factory(App\Costumer::class, 1000)->create();

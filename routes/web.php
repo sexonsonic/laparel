@@ -103,3 +103,9 @@ Route::get('/tni/{nama?}/{bb?}/{umur?}', function ($nama=null, $bb=null, $umur=n
     Route::get('pass','PracticeController@pass');
     Route::get('pass1','PracticeController@pass1');
     Route::get('pass-tabungan','PracticeController@pass2');
+    Route::get('pass-tabungan1/{id?}','PracticeController@pass3');
+
+    // Passing Data Film
+    Route::get('film-semua','FilmController@iya');
+    Route::get('film-satu/{id?}','FilmController@iyaiya');
+

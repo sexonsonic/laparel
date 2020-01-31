@@ -13,7 +13,19 @@
         Nis :{{ $data->nis }}<br>
         Nama :{{ $data->nama }}<br>
         Kelas :{{ $data->kelas }}<br>
-        Jumlah :{{ $data->jml }}<hr>
+        Jumlah :{{ $data->jml }}<br>
+
+        @if ($data->jml >= 100000)
+            {{ "Termasuk ke Paket A" }}
+
+            @elseif ($data->jml > 25000 && $data->jml < 100000)
+                {{ "Termasuk ke Paket B" }}
+
+            @elseif ($data->jml > 10000 && $data->jml < 25000)
+                {{ "Termasuk ke Paket C" }}
+        @endif
+        <hr>
+
     @endforeach
 </body>
 </html>
